@@ -3,7 +3,7 @@
 A symbolic execution engine can be built around a combined *state* and *list* monad. We use the state part to hold things like the local variable store and the symbolic heap, but potentially also additional data structures built during verification. The list part implements branching.
 
 ### Branching
-When we need to branch symbolic execution, we literally want a part of our program to *return twice*. In CPS, we cal the continuation passed to us a second time. With the list monad, we return a list containing multiple return values and the monad will automatically instantiate the rest of the computation once for each returned value.
+When we need to branch symbolic execution, we literally want a part of our program to *return twice*. In CPS, we call the continuation passed to us a second time. With the list monad, we return a list containing multiple return values and the monad will automatically instantiate the rest of the computation once for each returned value.
 
     cond <- equals(a,b)
     if cond
@@ -34,7 +34,7 @@ The main advantage of this approach is that much of the internals of the symboli
 ### Weaknesses
 
  * Without a do-notation (like in F#, Haskell), still lots of lambdas involved
- * Control flow that deviate from "ordinary" branching often impossible. The `try` mechanism is one example.
+ * Control flow that deviate from "ordinary" branching often impossible. The `try` (run one continuation, on error run a different continuation and retry) mechanism is one example.
  * No short-circuiting by default
 
 ### Exotic control flow (try-or-retry, short circuit on error)
