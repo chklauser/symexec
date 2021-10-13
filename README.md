@@ -14,7 +14,7 @@ Here, if we don't have enough information about `a` and `b`, we just return `[tr
 The rest of the program will be executed once for `cond == true` and once for `cond == false`.
 
 ### Primitives
-The author of the monad can introduce additional primitives that can bypass the monadic abstraction. It would, for instance, make sense not to expose the exact representation of the monad's state to the user and instead only provide primitives for the individula components.
+The author of the monad can introduce additional primitives that can bypass the monadic abstraction. It would, for instance, make sense not to expose the exact representation of the monad's state to the user and instead only provide primitives for the individual components.
 
     store_var "x" 15
     y <- load_var "y"
